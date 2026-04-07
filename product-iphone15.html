@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple iPhone 15 - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://gsm-store.ru/upload/iblock/e55/784z6g8076w12cf6m338ykhb8np0f8in.jpg">
+    <style>
+        .product-gallery {
+            display: flex;
+            gap: 1rem;
+        }
+        .main-image {
+            flex: 2;
+        }
+        .main-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+        }
+        .thumbnail-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .thumbnail-list img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .thumbnail-list img:hover {
+            opacity: 0.7;
+            transform: scale(0.95);
+        }
+        .product-details {
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .price-large {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+            margin: 1rem 0;
+        }
+        .stock-status {
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .quantity-selector button {
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        .quantity-selector button:hover {
+            background-color: var(--accent-cyan);
+        }
+        .quantity-selector span {
+            font-size: 1.2rem;
+            min-width: 40px;
+            text-align: center;
+        }
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .button-group .btn {
+            flex: 1;
+        }
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .specs-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        .specs-table td {
+            padding: 0.8rem;
+        }
+        .specs-table td:first-child {
+            font-weight: bold;
+            width: 30%;
+            background-color: var(--bg-light);
+        }
+        .reviews-section {
+            margin-top: 3rem;
+        }
+        .review-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow);
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+        .review-stars {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ConnectCom</a>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <a href="category-smartphones.html">Смартфоны</a> / <span>Apple iPhone 15</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img id="mainImage" src="https://www.renderhub.com/frezzy/apple-iphone-15-plus/apple-iphone-15-plus-01.jpg" alt="iPhone 15">
+                </div>
+            </div>
+
+            <div class="product-details">
+                <h1>Apple iPhone 15</h1>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span style="margin-left: 0.5rem;">(128 отзывов)</span>
+                </div>
+                
+                <div class="price-large">89 990 ₽</div>
+                
+                <div class="stock-status">
+                    <i class="fas fa-check-circle"></i> В наличии
+                </div>
+
+                <div class="quantity-selector">
+                    <button onclick="decrementQuantity()">-</button>
+                    <span id="quantity">1</span>
+                    <button onclick="incrementQuantity()">+</button>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-accent" id="buyNowBtn">Купить сейчас</button>
+                    <button class="btn" id="addToCartBtn" data-id="1" data-name="Apple iPhone 15" data-price="89990">Добавить в корзину</button>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h3>Ключевые особенности:</h3>
+                    <ul style="margin-top: 0.5rem; list-style: none;">
+                        <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i> Динамический остров</li>
+                        <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i> USB-C порт</li>
+                        <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i> Основная камера 48 МП</li>
+                        <li><i class="fas fa-check" style="color: var(--accent-cyan); margin-right: 0.5rem;"></i> Чип A16 Bionic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem;">
+            <h2 class="section-title">Характеристики</h2>
+            <table class="specs-table">
+                <tr>
+                    <td>Экран</td>
+                    <td>6.1" Super Retina XDR, 2556 x 1179 пикселей</td>
+                </tr>
+                <tr>
+                    <td>Процессор</td>
+                    <td>Apple A16 Bionic (6 ядер)</td>
+                </tr>
+                <tr>
+                    <td>Память</td>
+                    <td>128 ГБ встроенной, 6 ГБ оперативной</td>
+                </tr>
+                <tr>
+                    <td>Основная камера</td>
+                    <td>48 МП + 12 МП (ультраширокоугольная)</td>
+                </tr>
+                <tr>
+                    <td>Фронтальная камера</td>
+                    <td>12 МП</td>
+                </tr>
+                <tr>
+                    <td>Аккумулятор</td>
+                    <td>3349 мАч, поддержка быстрой зарядки 20 Вт</td>
+                </tr>
+                <tr>
+                    <td>Операционная система</td>
+                    <td>iOS 17</td>
+                </tr>
+                <tr>
+                    <td>Защита</td>
+                    <td>Ceramic Shield, водозащита IP68</td>
+                </tr>
+                <tr>
+                    <td>Цвета</td>
+                    <td>Черный, Синий, Зеленый, Желтый, Розовый</td>
+                </tr>
+                <tr>
+                    <td>Комплектация</td>
+                    <td>Телефон, кабель USB-C, документация</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="reviews-section">
+            <h2 class="section-title">Отзывы покупателей</h2>
+            
+            <div class="review-card">
+                <div class="review-header">
+                    <strong>Алексей С.</strong>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p>Отличный телефон! Перешел с iPhone 12, разница колоссальная. Динамический остров — удобная штука. Камера стала намного лучше, особенно ночью. Доставка быстрая, всё пришло в идеальном состоянии.</p>
+                <small style="color: #999;">12 марта 2025</small>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <strong>Екатерина М.</strong>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <p>Долго выбирала между iPhone 15 и Samsung S23, остановилась на Apple. Не пожалела! Батареи хватает на полтора дня активного использования. Отдельное спасибо менеджерам ConnectCom за консультацию!</p>
+                <small style="color: #999;">5 марта 2025</small>
+            </div>
+        </div>
+
+        <section style="margin-top: 3rem;">
+            <h2 class="section-title">С этим товаром покупают</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Защитное стекло">
+                    <div class="product-info">
+                        <h3 class="product-title">Защитное стекло для iPhone 15</h3>
+                        <p class="product-price">1 990 ₽</p>
+                        <button class="btn add-to-cart" data-id="13" data-name="Защитное стекло iPhone 15" data-price="1990">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200" alt="Чехол">
+                    <div class="product-info">
+                        <h3 class="product-title">Чехол-книжка для iPhone 15</h3>
+                        <p class="product-price">2 490 ₽</p>
+                        <button class="btn add-to-cart" data-id="14" data-name="Чехол для iPhone 15" data-price="2490">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="https://via.placeholder.com/300x200" alt="AirPods">
+                    <div class="product-info">
+                        <h3 class="product-title">Apple AirPods Pro 2</h3>
+                        <p class="product-price">24 990 ₽</p>
+                        <button class="btn add-to-cart" data-id="15" data-name="AirPods Pro 2" data-price="24990">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ConnectCom</h4>
+                <p>Ваш надежный проводник в мире технологий с 2015 года.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:88005553535">8 (800) 555-35-35</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@connectcom.ru">info@connectcom.ru</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Строителей, д.10</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Мы в соцсетях</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 ConnectCom. Все права защищены. Разработчик: [Ваше ФИО]
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        let quantity = 1;
+        
+        function changeImage(src) {
+            document.getElementById('mainImage').src = src;
+        }
+        
+        function incrementQuantity() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+        }
+        
+        function decrementQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+            }
+        }
+        
+        document.getElementById('addToCartBtn').addEventListener('click', function() {
+            const product = {
+                id: parseInt(this.dataset.id),
+                name: this.dataset.name,
+                price: parseInt(this.dataset.price)
+            };
+            
+            for (let i = 0; i < quantity; i++) {
+                cart.addItem(product);
+            }
+            
+            quantity = 1;
+            document.getElementById('quantity').textContent = quantity;
+        });
+        
+        document.getElementById('buyNowBtn').addEventListener('click', function() {
+            const product = {
+                id: 1,
+                name: 'Apple iPhone 15',
+                price: 89990
+            };
+            
+            for (let i = 0; i < quantity; i++) {
+                cart.addItem(product);
+            }
+            
+            window.location.href = 'cart.html';
+        });
+    </script>
+</body>
+</html>

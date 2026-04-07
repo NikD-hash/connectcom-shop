@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .checkout-form {
+            margin-top: 2rem;
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ConnectCom</a>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> / <span>Корзина</span>
+        </div>
+
+        <h1 class="section-title">Корзина</h1>
+
+        <div class="cart-container">
+        </div>
+
+        <form id="checkoutForm" class="checkout-form">
+            <h2>Оформление заказа</h2>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="fullname">Ваше имя *</label>
+                    <input type="text" id="fullname" name="fullname" required placeholder="Иван Иванов">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="ivan@example.com">
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
+                </div>
+                
+                <div class="form-group">
+                    <label for="delivery">Способ доставки</label>
+                    <select id="delivery" name="delivery">
+                        <option value="courier">Курьером (бесплатно)</option>
+                        <option value="pickup">Самовывоз (бесплатно)</option>
+                        <option value="post">Почта России (290 ₽)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Адрес доставки</label>
+                <input type="text" id="address" name="address" placeholder="г. Москва, ул. Примерная, д. 1, кв. 1">
+            </div>
+            
+            <div class="form-group">
+                <label for="comment">Комментарий к заказу</label>
+                <textarea id="comment" name="comment" rows="3" placeholder="Укажите удобное время доставки..."></textarea>
+            </div>
+            
+            <div class="form-group checkbox">
+                <input type="checkbox" id="agreement" name="agreement" required>
+                <label for="agreement">Я согласен с <a href="#">политикой обработки персональных данных</a> *</label>
+            </div>
+            
+            <button type="submit" class="btn btn-accent" style="width: 100%;">Подтвердить заказ</button>
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ConnectCom</h4>
+                <p>Ваш надежный проводник в мире технологий с 2015 года.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:88005553535">8 (800) 555-35-35</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@connectcom.ru">info@connectcom.ru</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Строителей, д.10</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Мы в соцсетях</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ConnectCom. Все права защищены.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>

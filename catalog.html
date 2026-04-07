@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .category-card {
+            position: relative;
+            overflow: hidden;
+        }
+        .category-card .category-count {
+            font-size: 0.75rem;
+            color: #666;
+            display: block;
+            margin-top: 0.5rem;
+            transition: var(--transition);
+        }
+        .category-card:hover .category-count {
+            color: white;
+        }
+        .badge-new {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--accent-cyan);
+            color: var(--primary-dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        .category-stats {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.7rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ConnectCom</a>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> / <span>Каталог</span>
+        </div>
+
+        <h1 class="section-title">Каталог товаров</h1>
+        <p class="mb-4">Более 150 товаров в наличии. Оригинальная продукция с гарантией от 12 месяцев. <i class="fas fa-check-circle" style="color: var(--accent-cyan);"></i></p>
+
+        <div class="category-grid">
+            <!-- Смартфоны -->
+            <a href="category-smartphones.html" class="category-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Смартфоны</h3>
+                <p>Флагманы и бюджетные модели</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 12+ моделей</span>
+                    <span><i class="fas fa-tag"></i> от 24 990 ₽</span>
+                </div>
+                <span class="category-count">Apple • Samsung • Xiaomi • Honor</span>
+            </a>
+
+            <a href="category-headphones.html" class="category-card">
+                <span class="badge-new">NEW</span>
+                <i class="fas fa-headphones"></i>
+                <h3>Наушники</h3>
+                <p>TWS, накладные, проводные</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 10+ моделей</span>
+                    <span><i class="fas fa-tag"></i> от 3 490 ₽</span>
+                </div>
+                <span class="category-count">JBL • Apple • Sony • Xiaomi • Samsung</span>
+            </a>
+
+            
+            <a href="category-tablets.html" class="category-card">
+                <i class="fas fa-tablet-alt"></i>
+                <h3>Планшеты</h3>
+                <p>Для работы и творчества</p>
+                <div class="category-stats">
+                    <span><i class="fas fa-box"></i> 10+ моделей</span>
+                    <span><i class="fas fa-tag"></i> от 19 990 ₽</span>
+                </div>
+                <span class="category-count">iPad • Samsung • Huawei • Honor • Xiaomi</span>
+            </a>
+        </div>
+
+        <section class="testimonials" style="margin-top: 3rem;">
+            <h2 class="section-title">🔥 Горячие предложения</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <span style="position: absolute; top: 10px; right: 10px; background: #ff4d4d; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">-20%</span>
+                    <img src="https://2cent.ru/storage/photo/resized/xy_1500x1500/g/zolmiely70zsmp0_c4f1ce19.jpg.webp" alt="iPhone 14">
+                    <div class="product-info">
+                        <h3 class="product-title">Apple iPhone 14</h3>
+                        <p class="product-price"><span style="text-decoration: line-through; color: #999;">79 990 ₽</span> 63 990 ₽</p>
+                        <ul class="product-specs">
+                            <li>Экран: 6.1" Super Retina</li>
+                            <li>Память: 128 ГБ</li>
+                        </ul>
+                        <button class="btn add-to-cart" data-id="10" data-name="iPhone 14" data-price="63990">В корзину</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <span style="position: absolute; top: 10px; right: 10px; background: #ff4d4d; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem;">-25%</span>
+                    <img src="https://avatars.mds.yandex.net/get-mpic/3922047/2a000001941c0efbaf5164d9303143dcc58f/orig" alt="AirPods Pro 2">
+                    <div class="product-info">
+                        <h3 class="product-title">Apple AirPods Pro 2</h3>
+                        <p class="product-price"><span style="text-decoration: line-through; color: #999;">24 990 ₽</span> 18 740 ₽</p>
+                        <ul class="product-specs">
+                            <li>Активное шумоподавление</li>
+                            <li>Чип H2</li>
+                        </ul>
+                        <button class="btn add-to-cart" data-id="13" data-name="AirPods Pro 2" data-price="18740">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 3rem;">
+            <h2 class="section-title">Почему выбирают ConnectCom</h2>
+            <div class="advantages">
+                <div class="advantage-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Гарантия качества</h3>
+                    <p>Только оригинальная продукция с сертификатами</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-truck-fast"></i>
+                    <h3>Бесплатная доставка</h3>
+                    <p>При заказе от 5000 ₽ по Москве</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Рассрочка 0%</h3>
+                    <p>На все товары до 12 месяцев</p>
+                </div>
+                <div class="advantage-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>Поддержка 24/7</h3>
+                    <p>Бесплатные консультации экспертов</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 3rem;">
+            <h2 class="section-title">Популярные бренды</h2>
+            <div class="partners-grid" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <div class="partner-logo" style="padding: 1rem 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <i class="fab fa-apple fa-3x" style="color: #333;"></i>
+                    <p>Apple</p>
+                </div>
+                <div class="partner-logo" style="padding: 1rem 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <i class="fab fa-android fa-3x" style="color: #3DDC84;"></i>
+                    <p>Samsung</p>
+                </div>
+                <div class="partner-logo" style="padding: 1rem 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <i class="fab fa-android fa-3x" style="color: #FF6600;"></i>
+                    <p>Xiaomi</p>
+                </div>
+                <div class="partner-logo" style="padding: 1rem 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <i class="fas fa-headphones fa-3x" style="color: #000;"></i>
+                    <p>JBL</p>
+                </div>
+                <div class="partner-logo" style="padding: 1rem 2rem; background: white; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                    <i class="fas fa-headphones fa-3x" style="color: #1E2A47;"></i>
+                    <p>Sony</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ConnectCom</h4>
+                <p>Ваш надежный проводник в мире технологий с 2015 года.</p>
+                <p style="margin-top: 0.5rem;"><i class="fas fa-map-marker-alt"></i> Владимир, ул. Горького, 87</p>
+            </div>
+            <div class="footer-section">
+                <h4>Каталог</h4>
+                <ul>
+                    <li><a href="category-smartphones.html">Смартфоны</a></li>
+                    <li><a href="category-headphones.html">Наушники</a></li>
+                    <li><a href="category-watches.html">Умные часы</a></li>
+                    <li><a href="category-tablets.html">Планшеты</a></li>
+                    <li><a href="#">Аксессуары</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Информация</h4>
+                <ul>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="#">Доставка и оплата</a></li>
+                    <li><a href="#">Гарантия</a></li>
+                    <li><a href="#">Возврат товара</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:88005553535">8 (800) 555-35-35</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@connectcom.ru">info@connectcom.ru</a></li>
+                    <li><i class="fab fa-vk"></i> <a href="#">VKontakte</a></li>
+                    <li><i class="fab fa-telegram"></i> <a href="#">Telegram</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ConnectCom. Все права защищены.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiaomi Redmi Note 12 - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-details-page { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        .product-image-main { background-color: white; border-radius: var(--border-radius); padding: 2rem; box-shadow: var(--shadow); text-align: center; }
+        .product-info-page { background-color: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+        .price-large { font-size: 2rem; font-weight: bold; color: var(--accent-cyan); margin: 1rem 0; }
+        .stock { color: #4CAF50; font-weight: bold; margin-bottom: 1rem; }
+        .quantity-selector { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
+        .specs-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        .specs-table td { padding: 0.8rem; border-bottom: 1px solid #eee; }
+        .specs-table td:first-child { font-weight: bold; width: 35%; background-color: var(--bg-light); }
+        @media (max-width: 768px) { .product-details-page { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo"><a href="index.html">ConnectCom</a></div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span></a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="breadcrumbs"><a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <a href="category-smartphones.html">Смартфоны</a> / <span>Xiaomi Redmi Note 12</span></div>
+        <div class="product-details-page">
+            <div class="product-image-main"><img src="https://astmarket.com/upload/iblock/397/nr0zzed6r3ltevfhvh00dlx9ns5gs603/d2d2ecea_5b7f_11ee_9f13_005056b72201.jpg" alt="Xiaomi Redmi Note 12"></div>
+            <div class="product-info-page">
+                <h1>Xiaomi Redmi Note 12</h1>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(89 отзывов)</span></div>
+                <div class="price-large">24 990 ₽</div>
+                <div class="stock"><i class="fas fa-check-circle"></i> В наличии</div>
+                <div class="quantity-selector"><button onclick="decrementQuantity()">-</button><span id="quantity">1</span><button onclick="incrementQuantity()">+</button></div>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn btn-accent" style="flex: 1;" id="buyNowBtn">Купить сейчас</button>
+                    <button class="btn" style="flex: 1;" id="addToCartBtn" data-id="5" data-name="Xiaomi Redmi Note 12" data-price="24990">В корзину</button>
+                </div>
+            </div>
+        </div>
+        <h2 class="section-title">Характеристики</h2>
+        <table class="specs-table">
+            <tr><td>Модель</td><td>Xiaomi Redmi Note 12</td></tr>
+            <tr><td>Экран</td><td>6.67" AMOLED, 120Гц</td></tr>
+            <tr><td>Процессор</td><td>Snapdragon 685</td></tr>
+            <tr><td>Память</td><td>4/128 ГБ</td></tr>
+            <tr><td>Основная камера</td><td>50 МП + 8 МП + 2 МП</td></tr>
+            <tr><td>Аккумулятор</td><td>5000 мАч, быстрая зарядка 33 Вт</td></tr>
+        </table>
+    </main>
+    <footer>...</footer>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        let quantity = 1;
+        function incrementQuantity() { quantity++; document.getElementById('quantity').textContent = quantity; }
+        function decrementQuantity() { if (quantity > 1) { quantity--; document.getElementById('quantity').textContent = quantity; } }
+        document.getElementById('addToCartBtn').addEventListener('click', function() { const product = { id: 5, name: 'Xiaomi Redmi Note 12', price: 24990 }; for (let i = 0; i < quantity; i++) cart.addItem(product); quantity = 1; document.getElementById('quantity').textContent = quantity; });
+        document.getElementById('buyNowBtn').addEventListener('click', function() { const product = { id: 5, name: 'Xiaomi Redmi Note 12', price: 24990 }; for (let i = 0; i < quantity; i++) cart.addItem(product); window.location.href = 'cart.html'; });
+    </script>
+</body>
+</html>

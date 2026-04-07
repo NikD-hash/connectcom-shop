@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Яндекс Карты API -->
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш-api-ключ&lang=ru_RU" type="text/javascript"></script>
+    <style>
+        .working-hours {
+            background-color: var(--bg-light);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+        }
+        .working-hours h4 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-dark);
+        }
+        .social-links-large {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+        .social-links-large a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: var(--bg-light);
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+        .social-links-large a:hover {
+            background-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question:hover {
+            color: var(--accent-cyan);
+        }
+        .faq-answer {
+            display: none;
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+            color: #666;
+        }
+        .faq-answer.show {
+            display: block;
+        }
+        .metro-station {
+            display: inline-block;
+            background-color: #0055a4;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        .bus-station {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        .delivery-zone {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+        }
+        .university-badge {
+            background: linear-gradient(135deg, var(--primary-dark), var(--accent-cyan));
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ConnectCom</a>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> / <span>Контакты</span>
+        </div>
+
+        <h1 class="section-title">Контакты</h1>
+
+        <div class="contact-container">
+            <div>
+                <div class="map-container">
+                    <div id="yandexMap" style="width: 100%; height: 450px;"></div>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Адрес офиса и шоурума:</strong><br>
+                            г. Владимир, ул. Горького, д. 87<br>
+                            Владимирский государственный университет (ВлГУ)<br>
+                            <span class="university-badge"><i class="fas fa-university"></i> Корпус №3, 2-й этаж, аудитория 203</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-bus"></i>
+                        <div>
+                            <strong>Как добраться:</strong><br>
+                            <span class="bus-station">🚌 Остановка "ВлГУ"</span> Автобусы: 1, 2, 5, 7, 10, 12, 15, 25<br>
+                            <span class="bus-station">🚌 Остановка "Улица Горького"</span> Троллейбусы: 1, 2, 5<br>
+                            <span class="bus-station">🚌 Остановка "Драмтеатр"</span> Маршрутные такси: 4, 8, 13, 22<br>
+                            <strong>От ж/д вокзала:</strong> Автобус №1, 5, 10 до остановки "ВлГУ" (10 минут)
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Режим работы:</strong><br>
+                            <div class="working-hours">
+                                <p><i class="fas fa-calendar-day"></i> Пн-Пт: 10:00 - 21:00</p>
+                                <p><i class="fas fa-calendar-weekend"></i> Сб-Вс: 11:00 - 20:00</p>
+                                <p><i class="fas fa-globe"></i> Онлайн-заказы: 24/7</p>
+                                <p><i class="fas fa-truck"></i> Доставка: Ежедневно с 10:00 до 22:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <strong>Телефоны:</strong><br>
+                            <a href="tel:88005553535">8 (800) 555-35-35</a> (бесплатно по России)<br>
+                            <a href="tel:74922345678">+7 (4922) 34-56-78</a> (для Владимира)<br>
+                            <a href="tel:74927654321">+7 (4922) 76-54-32</a> (отдел продаж)
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Email:</strong><br>
+                            <a href="mailto:info@connectcom.ru">info@connectcom.ru</a> - общие вопросы<br>
+                            <a href="mailto:sales@connectcom.ru">sales@connectcom.ru</a> - оптовые продажи<br>
+                            <a href="mailto:service@connectcom.ru">service@connectcom.ru</a> - сервисный центр
+                        </div>
+                    </div>
+
+                    <!-- Зона доставки -->
+                    <div class="delivery-zone">
+                        <i class="fas fa-truck-fast" style="color: #4CAF50; font-size: 1.2rem;"></i>
+                        <strong>Зона бесплатной доставки:</strong><br>
+                        В пределах г. Владимир - бесплатно при заказе от 3 000 ₽.<br>
+                        Владимирская область (до 30 км) - доставка 500 ₽.<br>
+                        <small>Студентам и преподавателям ВлГУ скидка 10% на доставку!</small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <form id="contactForm" class="contact-form">
+                <h2>Напишите нам</h2>
+                <p style="margin-bottom: 1rem;">Оставьте сообщение, и мы ответим вам в течение 15 минут в рабочее время</p>
+                
+                <div class="form-group">
+                    <label for="contactName">Ваше имя *</label>
+                    <input type="text" id="contactName" name="contactName" required placeholder="Иван Иванов">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactEmail">Email *</label>
+                    <input type="email" id="contactEmail" name="contactEmail" required placeholder="ivan@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactPhone">Телефон</label>
+                    <input type="tel" id="contactPhone" name="contactPhone" placeholder="+7 (4922) 123-45-67">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Тема *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Выберите тему</option>
+                        <option value="question">Вопрос о товаре</option>
+                        <option value="order">Вопрос о заказе</option>
+                        <option value="delivery">Вопрос о доставке</option>
+                        <option value="service">Сервисный центр</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Сообщение *</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Опишите ваш вопрос подробнее..."></textarea>
+                </div>
+                
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="contactAgreement" name="contactAgreement" required>
+                    <label for="contactAgreement">Я согласен на обработку персональных данных *</label>
+                </div>
+                
+                <button type="submit" class="btn btn-accent" style="width: 100%;">Отправить сообщение</button>
+            </form>
+        </div>
+
+        <!-- Социальные сети -->
+        <div style="margin-top: 3rem;">
+            <h2 class="section-title">Мы в социальных сетях</h2>
+            <div class="social-links-large">
+                <a href="#"><i class="fab fa-vk fa-2x"></i> VKontakte</a>
+                <a href="#"><i class="fab fa-telegram fa-2x"></i> Telegram</a>
+                <a href="#"><i class="fab fa-youtube fa-2x"></i> YouTube</a>
+                <a href="#"><i class="fab fa-instagram fa-2x"></i> Instagram</a>
+                <a href="#"><i class="fab fa-whatsapp fa-2x"></i> WhatsApp</a>
+            </div>
+        </div>
+
+        <!-- Часто задаваемые вопросы -->
+        <div style="margin-top: 3rem;">
+            <h2 class="section-title">Часто задаваемые вопросы</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Как получить бесплатную консультацию?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Вы можете позвонить нам по телефону 8 (800) 555-35-35, написать в чат на сайте или прийти в наш шоурум по адресу: г. Владимир, ул. Горького, д. 87 (ВлГУ, корпус №3). Наши специалисты помогут с выбором и настройкой техники абсолютно бесплатно!
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Есть ли гарантия на товары?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Да, на все товары предоставляется гарантия от 12 до 24 месяцев в зависимости от производителя. Вы можете обратиться в наш сервисный центр в течение всего гарантийного срока. Адрес сервисного центра: г. Владимир, ул. Горького, д. 87, ВлГУ, корпус №3, 3-й этаж.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Как оформить возврат товара?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Возврат товара надлежащего качества возможен в течение 14 дней при сохранении товарного вида и упаковки. Для оформления возврата свяжитесь с нашим менеджером по телефону или email. Возврат денег осуществляется в течение 10 рабочих дней.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Есть ли примерочная для наушников и часов?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Да, в нашем шоуруме по адресу ВлГУ вы можете примерить любые модели наушников и умных часов. Также доступны демонстрационные образцы смартфонов и планшетов. Приходите в удобное время без предварительной записи!
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Есть ли скидка для студентов ВлГУ?
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    Да! Для студентов и преподавателей ВлГУ действует скидка 5% при предъявлении студенческого/служебного билета. Также регулярно проводятся акции и розыгрыши для студентов университета. Следите за нашими объявлениями в корпусах ВлГУ и в социальных сетях!
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 2rem; background-color: white; padding: 2rem; border-radius: var(--border-radius);">
+            <h3><i class="fas fa-map"></i> Схема проезда</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                <div>
+                    <h4>🚗 На автомобиле:</h4>
+                    <p>От трассы М7 "Волга" (Москва - Нижний Новгород):<br>
+                    Съезд на г. Владимир, двигаться по Октябрьскому проспекту, поворот на ул. Горького. ВлГУ находится в центре города, ориентир - главный корпус университета.</p>
+                </div>
+                <div>
+                    <h4>🚂 С ж/д вокзала:</h4>
+                    <p>Выйдя из здания вокзала, перейдите на противоположную сторону площади. Остановка общественного транспорта "Вокзальная площадь". Автобусы №1, 5, 10 до остановки "ВлГУ" (время в пути ~10 минут).</p>
+                </div>
+                <div>
+                    <h4>🚌 Из других районов:</h4>
+                    <p>От площади Победы: троллейбус №1, 2, 5.<br>
+                    От Юго-Западного района: автобус №15, 25.<br>
+                    От Доброе: автобус №7, 12.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ConnectCom</h4>
+                <p>Ваш надежный проводник в мире технологий с 2015 года.</p>
+                <p style="margin-top: 0.5rem;"><i class="fas fa-map-marker-alt"></i> г. Владимир, ул. Горького, д. 87 (ВлГУ)</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:88005553535">8 (800) 555-35-35</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@connectcom.ru">info@connectcom.ru</a></li>
+                    <li><i class="fab fa-vk"></i> <a href="#">VKontakte</a></li>
+                    <li><i class="fab fa-telegram"></i> <a href="#">Telegram</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Мы в соцсетях</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ConnectCom. Все права защищены.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/validation.js"></script>
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            answer.classList.toggle('show');
+            
+            if (answer.classList.contains('show')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        }
+
+        ymaps.ready(init);
+        
+        function init() {
+            var vlsuCoordinates = [56.129059, 40.407803];
+            
+            var myMap = new ymaps.Map("yandexMap", {
+                center: vlsuCoordinates,
+                zoom: 17,
+                controls: ['zoomControl', 'fullscreenControl', 'geolocationControl']
+            });
+            
+            var mainPlacemark = new ymaps.Placemark(vlsuCoordinates, {
+                hintContent: 'ConnectCom - магазин техники',
+                balloonContent: '<strong>ConnectCom</strong><br>' +
+                               '📍 г. Владимир, ул. Горького, д. 87<br>' +
+                               '🏛 Владимирский государственный университет (ВлГУ)<br>' +
+                               '🏢 Корпус №3, 2-й этаж, аудитория 203<br>' +
+                               '☎ 8 (800) 555-35-35<br>' +
+                               '🕒 Пн-Пт: 10:00-21:00, Сб-Вс: 11:00-20:00'
+            }, {
+                preset: 'islands#blueCircleDotIcon',
+                iconColor: '#00C8B4'
+            });
+            
+            myMap.geoObjects.add(mainPlacemark);
+            
+            var buildingPlacemarks = [
+                {
+                    coords: [56.128500, 40.408500],
+                    name: 'Главный корпус ВлГУ',
+                    hint: 'Главный корпус университета'
+                },
+                {
+                    coords: [56.129800, 40.406500],
+                    name: 'Корпус №2',
+                    hint: 'Институт информационных технологий'
+                },
+                {
+                    coords: [56.127900, 40.409200],
+                    name: 'Библиотека ВлГУ',
+                    hint: 'Научная библиотека'
+                }
+            ];
+            
+            buildingPlacemarks.forEach(building => {
+                var placemark = new ymaps.Placemark(building.coords, {
+                    hintContent: building.name,
+                    balloonContent: building.hint
+                }, {
+                    preset: 'islands#grayStretchyIcon',
+                    iconColor: '#999999'
+                });
+                myMap.geoObjects.add(placemark);
+            });
+            
+            var deliveryCircle = new ymaps.Circle([
+                vlsuCoordinates, 3000
+            ], {
+                balloonContent: "Зона бесплатной доставки (г. Владимир)",
+                hintContent: "Бесплатная доставка при заказе от 3000 ₽"
+            }, {
+                fillColor: "#00C8B440",
+                strokeColor: "#00C8B4",
+                strokeWidth: 2,
+                strokeOpacity: 0.8
+            });
+            
+            myMap.geoObjects.add(deliveryCircle);
+        }
+    </script>
+</body>
+</html>

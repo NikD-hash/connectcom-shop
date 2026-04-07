@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О компании - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .mission-block {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2a3a5e 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .mission-block h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .history-timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 3rem;
+        }
+        .history-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--accent-cyan);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.6rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            background-color: var(--accent-cyan);
+            border-radius: 50%;
+        }
+        .year {
+            font-weight: bold;
+            color: var(--accent-cyan);
+            font-size: 1.2rem;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .team-member {
+            text-align: center;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 3px solid var(--accent-cyan);
+        }
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .partner-logo {
+            background-color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        .partner-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .stat-card {
+            text-align: center;
+            background-color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+        }
+        .stat-label {
+            color: var(--text-dark);
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ConnectCom</a>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> / <span>О компании</span>
+        </div>
+
+        <div class="mission-block">
+            <h2>Наша миссия</h2>
+            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
+                "Делать современные технологии доступными каждому, предоставляя не просто технику, 
+                а решения для связи, работы и развлечений"
+            </p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">лет на рынке</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50 000+</div>
+                <div class="stat-label">довольных клиентов</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">сотрудников</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">поддержка</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">История компании</h2>
+        <div class="history-timeline">
+            <div class="timeline-item">
+                <div class="year">2015</div>
+                <p>Основание компании ConnectCom. Открытие первого магазина во Владимире.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2017</div>
+                <p>Запуск интернет-магазина. Начало доставки по всей России.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2019</div>
+                <p>Открытие сервисного центра. Компания становится официальным партнером Apple и Samsung.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2021</div>
+                <p>Расширение ассортимента до 5000+ товаров. Открытие 5 магазинов в Москве и Санкт-Петербурге.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="year">2024</div>
+                <p>Запуск круглосуточной экспресс-доставки. Открытие шоурума с демонстрацией всех товаров.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Почему выбирают нас</h2>
+        <div class="advantages" style="margin-bottom: 3rem;">
+            <div class="advantage-card">
+                <i class="fas fa-microphone-alt"></i>
+                <h3>Экспертная поддержка 24/7</h3>
+                <p>Бесплатные консультации по настройке и использованию техники в любое время</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Только оригинал</h3>
+                <p>100% оригинальная продукция с гарантией от производителя</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-rocket"></i>
+                <h3>Быстрая доставка</h3>
+                <p>Экспресс-доставка от 2 часов по Москве и Санкт-Петербургу</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-hand-holding-usd"></i>
+                <h3>Выгодные цены</h3>
+                <p>Программа лояльности, кэшбек 5% и регулярные акции</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Наша команда</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <h3>Александр Смирнов</h3>
+                <p>Основатель и CEO</p>
+                <small>Более 15 лет в IT-бизнесе</small>
+            </div>
+            <div class="team-member">
+                <h3>Мария Волкова</h3>
+                <p>Технический директор</p>
+                <small>Эксперт в области мобильных технологий</small>
+            </div>
+            <div class="team-member">
+                <h3>Дмитрий Козлов</h3>
+                <p>Руководитель отдела продаж</p>
+                <small>Поможет подобрать идеальный гаджет</small>
+            </div>
+            <div class="team-member">
+                <h3>Елена Соколова</h3>
+                <p>Руководитель службы поддержки</p>
+                <small>Заботится о клиентах 24/7</small>
+            </div>
+        </div>
+
+        <h2 class="section-title">Наши партнеры</h2>
+        <div class="partners-grid">
+            <div class="partner-logo">
+                <i class="fab fa-apple fa-3x" style="color: #333;"></i>
+                <p>Apple</p>
+            </div>
+            <div class="partner-logo">
+                <i class="fab fa-android fa-3x" style="color: #3DDC84;"></i>
+                <p>Samsung</p>
+            </div>
+            <div class="partner-logo">
+                <i class="fab fa-android fa-3x" style="color: #FF6600;"></i>
+                <p>Xiaomi</p>
+            </div>
+            <div class="partner-logo">
+                <i class="fas fa-headphones fa-3x" style="color: #000;"></i>
+                <p>JBL</p>
+            </div>
+            <div class="partner-logo">
+                <i class="fab fa-cc-visa fa-3x" style="color: #1A1F71;"></i>
+                <p>Visa</p>
+            </div>
+        </div>
+
+        <section class="testimonials">
+            <h2 class="section-title">Что говорят о нас партнеры</h2>
+            <div class="testimonial-card">
+                <p>"ConnectCom — надежный партнер с профессиональным подходом. Рекомендуем как клиентам, так и коллегам по бизнесу."</p>
+                <div class="testimonial-author">
+                    <div>
+                        <strong>Иван Петров</strong>
+                        <p>Менеджер по работе с партнерами, Samsung Россия</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Сотрудничаем уже 5 лет. Отличные показатели продаж и высокий уровень сервиса для конечных покупателей."</p>
+                <div class="testimonial-author">
+                    <div>
+                        <strong>Анна Сидорова</strong>
+                        <p>Региональный менеджер, Apple Premium Reseller</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ConnectCom</h4>
+                <p>Ваш надежный проводник в мире технологий с 2015 года.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:88005553535">8 (800) 555-35-35</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@connectcom.ru">info@connectcom.ru</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Строителей, д.10</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Мы в соцсетях</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ConnectCom. Все права защищены.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

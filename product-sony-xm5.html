@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sony WH-1000XM5 - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .product-details-page { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+        .product-image-main { background-color: white; border-radius: var(--border-radius); padding: 2rem; box-shadow: var(--shadow); text-align: center; }
+        .product-info-page { background-color: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow); }
+        .price-large { font-size: 2rem; font-weight: bold; color: var(--accent-cyan); margin: 1rem 0; }
+        .stock { color: #4CAF50; font-weight: bold; margin-bottom: 1rem; }
+        .quantity-selector { display: flex; align-items: center; gap: 1rem; margin: 1.5rem 0; }
+        .specs-table { width: 100%; border-collapse: collapse; margin-top: 2rem; }
+        @media (max-width: 768px) { .product-details-page { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <header>...</header>
+    <nav>...</nav>
+    <main>
+        <div class="breadcrumbs"><a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <a href="category-headphones.html">Наушники</a> / <span>Sony WH-1000XM5</span></div>
+        <div class="product-details-page">
+            <div class="product-image-main"><img src="https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=500&h=500&fit=crop" alt="Sony WH-1000XM5"></div>
+            <div class="product-info-page">
+                <h1>Sony WH-1000XM5</h1>
+                <div class="review-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span>(423 отзыва)</span></div>
+                <div class="price-large">34 990 ₽</div>
+                <div class="stock"><i class="fas fa-check-circle"></i> В наличии</div>
+                <div class="quantity-selector"><button onclick="decrementQuantity()">-</button><span id="quantity">1</span><button onclick="incrementQuantity()">+</button></div>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn btn-accent" style="flex: 1;" id="buyNowBtn">Купить сейчас</button>
+                    <button class="btn" style="flex: 1;" id="addToCartBtn" data-id="105" data-name="Sony WH-1000XM5" data-price="34990">В корзину</button>
+                </div>
+            </div>
+        </div>
+        <h2 class="section-title">Характеристики</h2>
+        <table class="specs-table">
+            <tr><td>Модель</td><td>Sony WH-1000XM5</td></tr>
+            <tr><td>Тип</td><td>Накладные</td></tr>
+            <tr><td>Шумоподавление</td><td>Лучшее на рынке, процессор V1</td></tr>
+            <tr><td>Время работы</td><td>30 часов</td></tr>
+            <tr><td>Быстрая зарядка</td><td>3 минуты = 3 часа работы</td></tr>
+            <tr><td>Bluetooth</td><td>5.2, LDAC, AAC, SBC</td></tr>
+            <tr><td>Вес</td><td>250 г</td></tr>
+        </table>
+    </main>
+    <footer>...</footer>
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        let quantity = 1;
+        function incrementQuantity() { quantity++; document.getElementById('quantity').textContent = quantity; }
+        function decrementQuantity() { if (quantity > 1) { quantity--; document.getElementById('quantity').textContent = quantity; } }
+        document.getElementById('addToCartBtn').addEventListener('click', function() { const product = { id: 105, name: 'Sony WH-1000XM5', price: 34990 }; for (let i = 0; i < quantity; i++) cart.addItem(product); quantity = 1; document.getElementById('quantity').textContent = quantity; });
+        document.getElementById('buyNowBtn').addEventListener('click', function() { const product = { id: 105, name: 'Sony WH-1000XM5', price: 34990 }; for (let i = 0; i < quantity; i++) cart.addItem(product); window.location.href = 'cart.html'; });
+    </script>
+</body>
+</html>

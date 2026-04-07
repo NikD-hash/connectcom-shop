@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConnectCom - магазин сотовой связи и техники</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2a3a5e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0,200,180,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .hero * {
+            position: relative;
+            z-index: 1;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat .number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-cyan);
+        }
+        .featured-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(135deg, var(--accent-cyan), #00a896);
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary-dark), #2a3a5e);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 500px;
+            margin: 1.5rem auto 0;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem;
+            border: none;
+            border-radius: var(--border-radius);
+        }
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 1rem;
+            }
+            .hero-stat .number {
+                font-size: 1.5rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ConnectCom</a>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h1>ConnectCom — твой проводник в мире технологий</h1>
+            <p>Рассрочка 0% и бесплатная доставка от 2 часов</p>
+            <a href="catalog.html" class="btn btn-accent">Перейти к покупкам</a>
+            
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="number">10+</div>
+                    <div>лет на рынке</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">50 000+</div>
+                    <div>довольных клиентов</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">24/7</div>
+                    <div>поддержка</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="number">2 часа</div>
+                    <div>экспресс-доставка</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages">
+            <div class="advantage-card">
+                <i class="fas fa-headset"></i>
+                <h3>Эксперты 24/7</h3>
+                <p>Бесплатные консультации по настройке в любое время</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Оригинальный товар</h3>
+                <p>Только официальная продукция с гарантией</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-truck"></i>
+                <h3>Быстрая доставка</h3>
+                <p>От 2 часов по городу курьером</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-gift"></i>
+                <h3>Программа лояльности</h3>
+                <p>Кэшбек 5% бонусами на все покупки</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Популярные категории</h2>
+            <div class="category-grid">
+                <a href="category-smartphones.html" class="category-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Смартфоны</h3>
+                    <p>Более 50 моделей</p>
+                    <span class="category-count">Apple • Samsung • Xiaomi</span>
+                </a>
+                <a href="category-headphones.html" class="category-card">
+                    <i class="fas fa-headphones"></i>
+                    <h3>Наушники</h3>
+                    <p>Беспроводные и проводные</p>
+                    <span class="category-count">JBL • Apple • Sony • Xiaomi</span>
+                </a>
+                <a href="category-tablets.html" class="category-card">
+                    <i class="fas fa-tablet-alt"></i>
+                    <h3>Планшеты</h3>
+                    <p>Для работы и развлечений</p>
+                    <span class="category-count">iPad • Samsung • Honor</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Хиты продаж</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <span class="featured-badge">🔥 Хит</span>
+                    <img src="https://www.renderhub.com/frezzy/apple-iphone-15-plus/apple-iphone-15-plus-01.jpg" alt="iPhone 15">
+                    <div class="product-info">
+                        <h3 class="product-title">Apple iPhone 15</h3>
+                        <p class="product-price">89 990 ₽</p>
+                        <ul class="product-specs">
+                            <li>Экран: 6.1" Super Retina</li>
+                            <li>Память: 128 ГБ</li>
+                            <li>Динамический остров</li>
+                        </ul>
+                        <button class="btn add-to-cart" data-id="1" data-name="iPhone 15" data-price="89990">В корзину</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <span class="featured-badge">⭐ Рейтинг 5.0</span>
+                    <img src="https://avatars.mds.yandex.net/get-mpic/3922047/2a000001941c0efbaf5164d9303143dcc58f/orig" alt="AirPods Pro 2">
+                    <div class="product-info">
+                        <h3 class="product-title">Apple AirPods Pro 2</h3>
+                        <p class="product-price">24 990 ₽</p>
+                        <ul class="product-specs">
+                            <li>Активное шумоподавление</li>
+                            <li>Чип H2</li>
+                            <li>Пространственное аудио</li>
+                        </ul>
+                        <button class="btn add-to-cart" data-id="103" data-name="AirPods Pro 2" data-price="24990">В корзину</button>
+                    </div>
+                </div>
+                
+                </div>
+                <div class="product-card">
+                    <img src="https://astmarket.com/upload/iblock/397/nr0zzed6r3ltevfhvh00dlx9ns5gs603/d2d2ecea_5b7f_11ee_9f13_005056b72201.jpg" alt="Xiaomi Redmi Note 12">
+                    <div class="product-info">
+                        <h3 class="product-title">Xiaomi Redmi Note 12</h3>
+                        <p class="product-price">24 990 ₽</p>
+                        <ul class="product-specs">
+                            <li>Экран: 6.67" AMOLED</li>
+                            <li>Память: 4/128 ГБ</li>
+                            <li>Камера 50 МП</li>
+                        </ul>
+                        <button class="btn add-to-cart" data-id="3" data-name="Xiaomi Redmi Note 12" data-price="24990">В корзину</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" style="background: linear-gradient(135deg, #f5f7fa, #fff);">
+            <h2 class="section-title">🎁 Специальное предложение</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+                <div>
+                    <h3 style="color: var(--primary-dark); font-size: 1.8rem; margin-bottom: 1rem;">Apple Watch + iPhone 15</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 1rem;">Купи iPhone 15 и получи скидку 15% на Apple Watch Series 9</p>
+                    <p><strong>Экономия до 7 500 ₽</strong></p>
+                    <a href="category-smartphones.html" class="btn btn-accent" style="margin-top: 1rem;">Выбрать iPhone</a>
+                </div>
+                <div style="text-align: center;">
+                    <i class="fas fa-apple fa-5x" style="color: var(--primary-dark);"></i>
+                    <i class="fas fa-plus fa-2x" style="margin: 0 1rem;"></i>
+                    <i class="fas fa-clock fa-5x" style="color: var(--accent-cyan);"></i>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2 class="section-title">Что говорят наши клиенты</h2>
+            <div class="testimonial-card">
+                <p>"Отличный магазин! Консультант помог выбрать идеальный телефон и настроил его под мои задачи. Доставка за 2 часа - это просто космос!"</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50" alt="Анна">
+                    <div>
+                        <strong>Анна К.</strong>
+                        <p>Покупка iPhone 15</p>
+                        <div style="color: #FFD700;">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Покупал наушники JBL Tune 230NC. Цена оказалась ниже, чем у конкурентов. Ребята реально эксперты, рассказали про все фишки. Буду заказывать еще!"</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50" alt="Дмитрий">
+                    <div>
+                        <strong>Дмитрий П.</strong>
+                        <p>JBL Tune 230NC</p>
+                        <div style="color: #FFD700;">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Заказал Apple Watch Ultra 2. Доставили на следующий день. Часы оригинальные, все работает отлично. Отдельное спасибо за подарок - ремешок в подарок!"</p>
+                <div class="testimonial-author">
+                    <img src="https://via.placeholder.com/50" alt="Максим">
+                    <div>
+                        <strong>Максим С.</strong>
+                        <p>Apple Watch Ultra 2</p>
+                        <div style="color: #FFD700;">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="newsletter">
+            <h3>Будьте в курсе новинок и акций!</h3>
+            <p>Подпишитесь на рассылку и получите скидку 5% на первый заказ</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Ваш email" id="newsletterEmail">
+                <button class="btn btn-accent" onclick="subscribeNewsletter()">Подписаться</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ConnectCom</h4>
+                <p>Ваш надежный проводник в мире технологий с 2015 года.</p>
+                <p style="margin-top: 1rem;"><i class="fas fa-map-marker-alt"></i> Владимир, проспект Строителей, д. 3/7</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Популярные категории</h4>
+                <ul>
+                    <li><a href="category-smartphones.html">Смартфоны</a></li>
+                    <li><a href="category-headphones.html">Наушники</a></li>
+                    <li><a href="category-tablets.html">Планшеты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:88005553535">8 (800) 555-35-35</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@connectcom.ru">info@connectcom.ru</a></li>
+                    <li><i class="fab fa-vk"></i> <a href="#">VKontakte</a></li>
+                    <li><i class="fab fa-telegram"></i> <a href="#">Telegram</a></li>
+                    <li><i class="fab fa-youtube"></i> <a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 ConnectCom. Все права защищены.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value;
+            if (email && email.includes('@')) {
+                alert(`Спасибо за подписку! Промокод на скидку 5% отправлен на ${email}`);
+                document.getElementById('newsletterEmail').value = '';
+            } else {
+                alert('Введите корректный email');
+            }
+        }
+    </script>
+</body>
+</html>

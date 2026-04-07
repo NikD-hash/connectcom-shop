@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Смартфоны - ConnectCom</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">ConnectCom</a>
+            </div>
+            <div class="header-contacts">
+                <a href="tel:88005553535"><i class="fas fa-phone"></i> 8 (800) 555-35-35</a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="menu">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+                <li><a href="about.html">О нас</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="breadcrumbs">
+            <a href="index.html">Главная</a> / <a href="catalog.html">Каталог</a> / <span>Смартфоны</span>
+        </div>
+
+        <h1 class="section-title">Смартфоны</h1>
+
+        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 2rem;">
+            <!-- Фильтры -->
+            <aside>
+                <div class="filter-section">
+                    <h3>Фильтры</h3>
+                    
+                    <div class="filter-group">
+                        <h4>Цена</h4>
+                        <div class="price-range">
+                            <input type="number" id="minPrice" placeholder="от 0" value="0">
+                            <input type="number" id="maxPrice" placeholder="до 200000" value="200000">
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Бренд</h4>
+                        <label><input type="checkbox" class="brand-filter" value="apple" checked> Apple</label>
+                        <label><input type="checkbox" class="brand-filter" value="samsung" checked> Samsung</label>
+                        <label><input type="checkbox" class="brand-filter" value="xiaomi" checked> Xiaomi</label>
+                        <label><input type="checkbox" class="brand-filter" value="honor" checked> Honor</label>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Объем памяти</h4>
+                        <label><input type="checkbox" class="storage-filter" value="128"> 128 ГБ</label>
+                        <label><input type="checkbox" class="storage-filter" value="256"> 256 ГБ</label>
+                        <label><input type="checkbox" class="storage-filter" value="512"> 512 ГБ</label>
+                    </div>
+
+                    <button id="applyFilters" class="btn btn-accent" style="width: 100%;">Применить</button>
+                    <button id="resetFilters" class="btn" style="width: 100%; margin-top: 0.5rem;">Сбросить</button>
+                </div>
+            </aside>
+
+            <!-- Список товаров -->
+            <section>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span>Найдено товаров: <span id="productCount">0</span></span>
+                    <select id="sortSelect">
+                        <option value="default">По умолчанию</option>
+                        <option value="priceAsc">Цена: по возрастанию</option>
+                        <option value="priceDesc">Цена: по убыванию</option>
+                        <option value="nameAsc">Название: А-Я</option>
+                    </select>
+                </div>
+
+                <div class="product-grid" id="productGrid"></div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>ConnectCom</h4>
+                <p>Ваш надежный проводник в мире технологий с 2015 года.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="catalog.html">Каталог</a></li>
+                    <li><a href="about.html">О нас</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Контакты</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> <a href="tel:88005553535">8 (800) 555-35-35</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:info@connectcom.ru">info@connectcom.ru</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Строителей, д.10</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Мы в соцсетях</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 ConnectCom. Все права защищены.
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
